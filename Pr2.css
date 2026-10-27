@@ -1,0 +1,77 @@
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background-color: #e8eef2;
+    color: #1f2933;
+    margin: 0;
+    padding: 2rem 1rem;
+    line-height: 1.5;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    /* a. Колір фону та тексту */
+    background-color: #ffffff;
+    color: #1f2933;
+
+    /* b. Ширина та внутрішні відступи */
+    width: 420px;
+    max-width: 100%;
+    padding: 24px 32px;
+    box-sizing: border-box;
+
+    /* c. Закруглені кути */
+    border-radius: 12px;
+
+    /* d. Тінь */
+    box-shadow: 0 8px 24px rgba(31, 41, 51, 0.18);
+
+    /* e. Позиціювання */
+    position: relative;
+    top: 10px;
+    margin: 0 auto;
+}
+
+form > div {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    font: inherit;
+    border: 1px solid #b8c2cc;
+    border-radius: 6px;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid #2f6f9f;
+    outline-offset: 1px;
+}
+
+input[type="submit"] {
+    padding: 0.6rem 1.5rem;
+    font: inherit;
+    color: #ffffff;
+    background-color: #2f6f9f;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #245a82;
+}
