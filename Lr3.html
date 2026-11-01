@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube</title>
+    <link rel="stylesheet" href="Lr3.css">
+</head>
+<body>
+
+<!-- ===== ШАПКА ===== -->
+<header class="header">
+    <div class="header__left">
+        <button class="icon-btn" aria-label="Меню">☰</button>
+        <a class="logo" href="#">
+            <span class="logo__icon">▶</span>
+            <span class="logo__text">YouTube</span>
+            <sup class="logo__country">UA</sup>
+        </a>
+    </div>
+
+    <form class="search" onsubmit="return false;">
+        <label class="visually-hidden" for="search">Пошук</label>
+        <input class="search__input" id="search" name="search" type="text" placeholder="Пошук">
+        <button class="search__btn" type="button" aria-label="Шукати">🔍</button>
+        <button class="icon-btn icon-btn--gray search__mic" type="button" aria-label="Голосовий пошук">🎤</button>
+    </form>
+
+    <div class="header__right">
+        <button class="create-btn" type="button">
+            <span class="create-btn__plus">+</span>
+            <span>Створити</span>
+        </button>
+        <button class="icon-btn" aria-label="Сповіщення">🔔</button>
+        <div class="avatar">K</div>
+    </div>
+</header>
+
+<!-- ===== ОСНОВНА ЧАСТИНА ===== -->
+<div class="layout">
+
+    <!-- Бічне меню -->
+    <aside class="sidebar">
+
+        <nav class="sidebar__section">
+            <a class="nav-item nav-item--active" href="#"><span class="nav-item__icon">🏠</span><span>Головна</span></a>
+            <a class="nav-item" href="#"><span class="nav-item__icon">⚡</span><span>YouTube Shorts</span></a>
+            <a class="nav-item" href="#"><span class="nav-item__icon">📺</span><span>Підписки</span></a>
+        </nav>
+
+        <nav class="sidebar__section">
+            <h3 class="sidebar__title">Ви <span class="sidebar__arrow">›</span></h3>
+            <a class="nav-item" href="#"><span class="nav-item__icon">🕘</span><span>Історія</span></a>
+            <a class="nav-item" href="#"><span class="nav-item__icon">☰</span><span>Списки відтворен…</span></a>
+            <a class="nav-item" href="#"><span class="nav-item__icon">🕒</span><span>Переглянути пізні…</span></a>
+            <a class="nav-item" href="#"><span class="nav-item__icon">👍</span><span>Відео, які сподоба…</span></a>
+            <a class="nav-item" href="#"><span class="nav-item__icon">▶</span><span>Ваші відео</span></a>
+            <a class="nav-item" href="#"><span class="nav-item__icon">⬇</span><span>Завантаження</span></a>
+        </nav>
+
+        <nav class="sidebar__section">
+            <h3 class="sidebar__title">Більше з YouTube</h3>
+            <a class="nav-item" href="#"><span class="nav-item__icon nav-item__icon--red">▶</span><span>Premium безкоштовно</span></a>
+            <a class="nav-item" href="#"><span class="nav-item__icon nav-item__icon--red">◉</span><span>YouTube Music</span></a>
+            <a class="nav-item" href="#"><span class="nav-item__icon nav-item__icon--red">▶</span><span>YouTube Kids</span></a>
+            <a class="nav-item" href="#"><span class="nav-item__icon nav-item__icon--red">⚗</span><span>YouTube Labs</span></a>
+        </nav>
+
+
+        <nav class="sidebar__section sidebar__section--last">
+            <h3 class="sidebar__title">Підписки</h3>
+            <a class="nav-item" href="#"><span class="nav-item__avatar nav-item__avatar--blue"></span><span>WAS: Популярна...</span></a>
+            <a class="nav-item" href="#"><span class="nav-item__avatar nav-item__avatar--dark"></span><span>TheDRZJ</span></a>
+            <a class="nav-item" href="#"><span class="nav-item__avatar nav-item__avatar--green"></span><span>ROZETKA</span></a>
+            <a class="nav-item" href="#"><span class="nav-item__avatar nav-item__avatar--brown"></span><span>Хащі</span></a>
+            <a class="nav-item" href="#"><span class="nav-item__icon">⌄</span><span>Показати ще 24</span></a>
+        </nav>
+    </aside>
+
+    <!-- Контент -->
+    <main class="content">
+
+        <!-- Сітка відео -->
+        <section class="videos">
+
+            <!-- Рекламна картка -->
+            <article class="video">
+                <a class="video__thumb thumb--purple" href="#">
+                    <span class="thumb__text">ФОКСІ ЗНАЄ,<br>ЩО ТИ СТРАШНО ХОЧЕШ!</span>
+                </a>
+                <div class="video__info">
+                    <div class="video__avatar avatar--orange"></div>
+                    <div class="video__text">
+                        <h3 class="video__title">Безкоштовна доставка роботів-пилососів прямо до вашого дому – замовляйте ...</h3>
+                        <p class="video__meta"><b>Реклама</b> · Фокстрот</p>
+                    </div>
+                    <button class="dots" aria-label="Ще">⋮</button>
+                </div>
+                <div class="video__actions">
+                    <button class="btn btn--light" type="button">Дивитися</button>
+                    <button class="btn btn--dark" type="button">Купувати зараз</button>
+                </div>
+            </article>
+
+            <article class="video">
+                <a class="video__thumb thumb--blue" href="#">
+                    <span class="thumb__text">copy me</span>
+                    <span class="video__time">12:44</span>
+                </a>
+                <div class="video__info">
+                    <div class="video__avatar avatar--teal"></div>
+                    <div class="video__text">
+                        <h3 class="video__title">Як я заробляю $24 937 на місяць, публікуючи YouTube Shorts</h3>
+                        <p class="video__meta">Kellan Henneberry ▷ 1,5 млн 4 міс. тому</p>
+                        <p class="video__meta video__meta--dub">🗣 <b>Автоматичний дубляж</b></p>
+                    </div>
+                    <button class="dots" aria-label="Ще">⋮</button>
+                </div>
+            </article>
+
+            <article class="video">
+                <a class="video__thumb thumb--black" href="#">
+                    <span class="thumb__text">DAY 1.</span>
+                    <span class="video__time">2:39</span>
+                </a>
+                <div class="video__info">
+                    <div class="video__avatar avatar--dark"></div>
+                    <div class="video__text">
+                        <h3 class="video__title">DISCIPLINE | An Animated Short Film</h3>
+                        <p class="video__meta">Day One Films ▷ 5,6 млн 1 міс. тому</p>
+                    </div>
+                    <button class="dots" aria-label="Ще">⋮</button>
+                </div>
+            </article>
+
+            <article class="video">
+                <a class="video__thumb thumb--yellow" href="#">
+                    <span class="thumb__text">GET STUFF DONE</span>
+                    <span class="video__time">4:46</span>
+                </a>
+                <div class="video__info">
+                    <div class="video__avatar avatar--blue"></div>
+                    <div class="video__text">
+                        <h3 class="video__title">How to Get Stuff Done When You Have ADHD</h3>
+                        <p class="video__meta">How to ADHD</p>
+                        <p class="video__meta">1,2 млн переглядів · 7 років тому</p>
+                    </div>
+                    <button class="dots" aria-label="Ще">⋮</button>
+                </div>
+            </article>
+
+            <article class="video">
+                <a class="video__thumb thumb--red" href="#">
+                    <span class="thumb__text">НАСЛІДКИ ЗРОСТАННЯ БОРГУ УКРАЇНИ</span>
+                    <span class="video__time">12:30</span>
+                </a>
+                <div class="video__info">
+                    <div class="video__avatar avatar--green"></div>
+                    <div class="video__text">
+                        <h3 class="video__title">Як збільшився борг України за час великої війни? | Економічна правда</h3>
+                        <p class="video__meta">Економічна правда</p>
+                        <p class="video__meta">78 тис. переглядів · 1 місяць тому</p>
+                    </div>
+                    <button class="dots" aria-label="Ще">⋮</button>
+                </div>
+            </article>
+
+            <article class="video">
+                <a class="video__thumb thumb--dark" href="#">
+                    <span class="thumb__text">ЩО БІСИТЬ ЖУРНАЛІСТКУ</span>
+                    <span class="video__time">32:08</span>
+                </a>
+                <div class="video__info">
+                    <div class="video__avatar avatar--brown"></div>
+                    <div class="video__text">
+                        <h3 class="video__title">Що Бісить Журналістку | Марія Малевська</h3>
+                        <p class="video__meta">LUKI</p>
+                        <p class="video__meta">70 тис. переглядів · 4 місяці тому</p>
+                    </div>
+                    <button class="dots" aria-label="Ще">⋮</button>
+                </div>
+            </article>
+        </section>
+
+        <!-- Shorts -->
+        <section class="shorts">
+            <div class="shorts__header">
+                <h2 class="shorts__title"><span class="shorts__icon">⚡</span> YouTube Shorts</h2>
+                <button class="dots" aria-label="Ще">⋮</button>
+            </div>
+            <div class="shorts__list">
+                <a class="short thumb--blue" href="#"><span class="short__title">The One-Person AI Creator Studio</span></a>
+                <a class="short thumb--dark" href="#"><span class="short__title">HTML: Create Account</span></a>
+                <a class="short thumb--black" href="#"><span class="short__title">Newton's Prisms</span></a>
+                <a class="short thumb--red" href="#"><span class="short__title">Design workflow</span></a>
+                <a class="short thumb--gray" href="#"><span class="short__title">Psychology of People With Too Many Interests</span></a>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+</body>
+</html>
