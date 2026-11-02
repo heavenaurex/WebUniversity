@@ -1,0 +1,450 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 30px;
+
+    background-color: #f5f5f5;
+
+    font-family: 'Montserrat', sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.planner {
+    width: 100%;
+    max-width: 1200px;
+    min-width: 650px;
+
+    aspect-ratio: 1.5 / 1;
+
+    display: grid;
+
+    grid-template-columns: 27.5% repeat(3, 1fr);
+
+    grid-template-rows: 11% 44% 45%;
+
+    grid-template-areas:
+        "header header header header"
+        "sidebar monday tuesday wednesday"
+        "sidebar thursday friday weekend";
+
+    background-color: white;
+
+    border: 4px solid #c7c7c7;
+    border-bottom: 12px solid #999;
+}
+
+.header {
+    grid-area: header;
+
+    display: grid;
+
+    grid-template-columns: 1.1fr 2fr 1fr;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 5px 15px;
+
+    border-bottom: 1px solid #999;
+}
+
+.header-title {
+    font-family: 'Oswald', sans-serif;
+
+    font-size: clamp(24px, 4vw, 42px);
+
+    font-weight: 400;
+
+    white-space: nowrap;
+
+    color: #333;
+}
+
+.header-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.header-info > div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+.header-info label {
+    font-size: 10px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.header-info input {
+    width: 100%;
+    min-width: 0;
+
+    border: none;
+    border-bottom: 1px solid #999;
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 11px;
+
+    background: transparent;
+}
+
+.header-info input:focus {
+    border-bottom: 2px solid #555;
+}
+
+.header-status {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 4px;
+}
+
+.header-status label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+}
+
+.sidebar {
+    grid-area: sidebar;
+
+    padding: 15px 20px;
+
+    border-right: 1px solid #999;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+.task-section h3 {
+    font-size: 11px;
+
+    font-weight: 700;
+
+    margin-bottom: 5px;
+}
+
+.task-list {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.task {
+    height: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    min-width: 0;
+}
+
+.check-label {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    cursor: pointer;
+}
+
+.task input[type="checkbox"] {
+    width: 11px;
+    height: 11px;
+
+    cursor: pointer;
+
+    accent-color: #555;
+}
+
+.task-input {
+    display: flex;
+
+    flex: 1;
+
+    height: 100%;
+
+    min-width: 0;
+}
+
+.task input[type="text"] {
+    width: 100%;
+
+    height: 100%;
+
+    min-width: 0;
+
+    border: none;
+    border-bottom: 1px solid #aaa;
+
+    outline: none;
+
+    background: transparent;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 11px;
+}
+
+.task input[type="text"]:focus {
+    border-bottom: 2px solid #555;
+}
+
+.goals {
+    margin-bottom: 12px;
+}
+
+.everything {
+    margin-bottom: 12px;
+}
+
+.next-week {
+    margin-top: 0;
+}
+
+.day {
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+    min-height: 0;
+
+    padding: 5px 10px;
+
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+}
+
+.monday {
+    grid-area: monday;
+}
+
+.tuesday {
+    grid-area: tuesday;
+}
+
+.wednesday {
+    grid-area: wednesday;
+
+    border-right: none;
+}
+
+.thursday {
+    grid-area: thursday;
+}
+
+.friday {
+    grid-area: friday;
+}
+
+.day-title {
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    min-height: 22px;
+}
+
+.day-title h3 {
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+}
+
+.day-title label {
+    position: absolute;
+
+    right: 5px;
+
+    display: flex;
+
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.day-title input[type="checkbox"] {
+    width: 11px;
+    height: 11px;
+
+    cursor: pointer;
+
+    accent-color: #555;
+}
+
+.day textarea {
+    width: 100%;
+
+    height: 100%;
+
+    flex: 1;
+
+    resize: none;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    padding: 8px 3px;
+}
+
+.day textarea:focus {
+    background-color: #fafafa;
+}
+
+.weekend {
+    grid-area: weekend;
+
+    display: grid;
+
+    grid-template-rows: 1fr 1fr;
+
+    min-height: 0;
+    min-width: 0;
+}
+
+.saturday {
+    border-right: none;
+}
+
+.sunday {
+    border-right: none;
+
+    border-bottom: none;
+}
+
+.visually-hidden {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    padding: 0;
+    margin: -1px;
+
+    overflow: hidden;
+
+    clip: rect(0, 0, 0, 0);
+
+    white-space: nowrap;
+
+    border: 0;
+}
+
+
+@media (max-width: 900px) {
+
+    body {
+        padding: 15px;
+
+        align-items: flex-start;
+    }
+
+    .planner {
+        aspect-ratio: auto;
+
+        min-height: 650px;
+
+        grid-template-rows:
+            75px
+            minmax(500px, 1fr)
+            minmax(500px, 1fr);
+    }
+
+    .header {
+        grid-template-columns: 1fr 1.5fr 1fr;
+
+        gap: 8px;
+
+        padding: 5px 8px;
+    }
+
+    .header-title {
+        font-size: 26px;
+    }
+
+    .sidebar {
+        padding: 10px;
+    }
+
+    .task {
+        height: 22px;
+    }
+
+    .day {
+        padding: 5px;
+    }
+}
+
+
+@media (max-width: 680px) {
+
+    body {
+        padding: 8px;
+
+        overflow-x: auto;
+    }
+
+    .planner {
+        min-width: 650px;
+    }
+}
