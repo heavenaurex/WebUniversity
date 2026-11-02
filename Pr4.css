@@ -1,0 +1,191 @@
+:root {
+    --blue: #0057b8;
+    --yellow: #ffd500;
+    --ink: #0a1020;
+    --key: #151922;
+    --key-mod: #2c3446;
+    --label: #f4f6fb;
+    --label-ua: #36c8ff;
+    --u: clamp(22px, 4.1vw, 58px); /* розмір 1 клавіші */
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "Exo 2", system-ui, sans-serif;
+    color: var(--label);
+    background: var(--ink);
+}
+
+/* Розмітка  (grid-template-areas) */
+.page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas:
+    "head"
+    "board";
+    grid-template-rows: auto 1fr;
+    gap: 24px;
+    padding: 24px clamp(12px, 3vw, 40px);
+    /* синьо-жовтий фон як прапор */
+    background:
+            linear-gradient(180deg, var(--blue) 0 50%, var(--yellow) 50% 100%) no-repeat left top / 100% 70vh,
+            var(--ink);
+}
+.page__head {
+    grid-area: head;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.page__head p {
+    margin: 0;
+    font-weight: 700;
+    color: var(--yellow);
+    text-shadow: 0 2px 0 rgba(0, 0, 0, .4);
+}
+.page__board {
+    grid-area: board;
+    overflow-x: auto;
+    padding: 8px 0 32px;
+    display: grid;
+    place-items: center;
+}
+
+h1 {
+    margin: 0;
+    font-family: "Russo One", sans-serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 400;
+    text-shadow: 0 3px 0 rgba(0, 0, 0, .35);
+}
+
+.keyboard {
+    --gap: 3px;
+    width: calc(var(--u) * 23.1);
+    display: grid;
+    grid-template-columns: repeat(90, 1fr); /* Клавіатурні гріди */
+    grid-template-rows: var(--u) calc(var(--u) * .45);
+    grid-auto-rows: var(--u);
+    padding: calc(var(--u) * .3);
+    border-radius: calc(var(--u) * .35);
+    background: #0c0f16;
+    box-shadow:
+            0 30px 60px rgba(0, 0, 0, .55),
+            0 0 0 2px #2b3243,
+            inset 0 2px 0 rgba(255, 255, 255, .08);
+}
+
+/* Ширина (гріди) */
+.w4  { grid-column: span 4; }
+.w5  { grid-column: span 5; }
+.w6  { grid-column: span 6; }
+.w7  { grid-column: span 7; }
+.w8  { grid-column: span 8; }
+.w9  { grid-column: span 9; }
+.w11 { grid-column: span 11; }
+.w25 { grid-column: span 25; }
+/* Висота(гріди)) */
+.h2  { grid-row: span 2; }
+
+/* Порожні проміжки у грідах */
+.s1  { grid-column: span 1; }
+.s2  { grid-column: span 2; }
+.s4  { grid-column: span 4; }
+.s5  { grid-column: span 5; }
+.s14 { grid-column: span 14; }
+.s90 { grid-column: 1 / -1; }
+
+.key {
+    margin: var(--gap);
+    padding: calc(var(--u) * .08) calc(var(--u) * .12);
+    position: relative;
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr; /* Ще гріди */
+    font-family: "Exo 2", sans-serif;
+    font-weight: 700;
+    font-size: calc(var(--u) * .3);
+    line-height: 1;
+    color: var(--label);
+    background: linear-gradient(180deg, #1c212d, var(--key));
+    border: 0;
+    border-radius: calc(var(--u) * .14);
+    cursor: pointer;
+    user-select: none;
+    /* Тіні */
+    box-shadow:
+            0 calc(var(--u) * .07) 0 #05070b,
+            0 calc(var(--u) * .12) calc(var(--u) * .15) rgba(0, 0, 0, .6),
+            inset 0 1px 0 rgba(255, 255, 255, .14),
+            inset 0 0 0 1px rgba(255, 255, 255, .06);
+    transition: transform .08s, box-shadow .08s, background .15s, color .15s;
+}
+
+/* Позиції (у грідах) */
+.l { display: block; }
+.tl { grid-area: 1 / 1; justify-self: start; align-self: start; }
+.bl { grid-area: 2 / 1; justify-self: start; align-self: end; }
+.tr { grid-area: 1 / 2; justify-self: end;   align-self: start; }
+.br { grid-area: 2 / 2; justify-self: end;   align-self: end; }
+
+.l-ua { color: var(--label-ua); text-shadow: 0 0 8px rgba(54, 200, 255, .35); }
+.key--letter .l-en { font-size: 1.15em; }
+.key--letter .l-ua { font-size: 1.3em; }
+
+/* Текст по центру */
+.key--mod, .key--fn, .key--num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.key--mod, .key--fn {
+    background: linear-gradient(180deg, var(--key-mod), #232a38);
+    color: #c9d2e6;
+    font-size: calc(var(--u) * .24);
+}
+.key--num { background: linear-gradient(180deg, #232938, #191e2a); font-size: calc(var(--u) * .32); }
+
+/* Анімація наведення */
+.key:hover {
+    background: linear-gradient(180deg, #2a3346, #1f2735);
+    box-shadow:
+            0 calc(var(--u) * .07) 0 #05070b,
+            0 calc(var(--u) * .12) calc(var(--u) * .2) rgba(54, 200, 255, .25),
+            inset 0 1px 0 rgba(255, 255, 255, .22),
+            inset 0 0 0 1px rgba(54, 200, 255, .35);
+}
+
+/* Фокус */
+.key:focus-visible { outline: 3px solid var(--label-ua); outline-offset: 1px; z-index: 2; }
+
+/* Анімація натискання */
+.key:active {
+    transform: translateY(calc(var(--u) * .06));
+    color: #111;
+    background: linear-gradient(180deg, #ffe45c, var(--yellow));
+    box-shadow:
+            0 calc(var(--u) * .01) 0 #05070b,
+            0 0 calc(var(--u) * .35) rgba(255, 213, 0, .75),
+            inset 0 2px 6px rgba(0, 0, 0, .25);
+}
+.key:active .l-ua { color: #003a7a; text-shadow: none; }
+
+/* Увімкнена клавіша */
+.key.is-on {
+    color: var(--yellow);
+    background: linear-gradient(180deg, #1b3a66, #12284a);
+    box-shadow:
+            0 calc(var(--u) * .07) 0 #05070b,
+            0 0 calc(var(--u) * .3) rgba(0, 87, 184, .9),
+            inset 0 0 0 2px var(--yellow);
+}
+
+@media (max-width: 900px) {
+    .keyboard { --u: 36px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .key { transition: none; }
+}
