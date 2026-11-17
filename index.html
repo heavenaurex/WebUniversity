@@ -1,149 +1,815 @@
+
 <!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Особистий веб-сайт студента: інформація про мене, практичні та лабораторні роботи.">
+
+    <meta name="description" content="Особистий сайт-портфоліо Михайла Ковалівського. Практичні та лабораторні роботи.">
     <meta name="author" content="Михайло Ковалівський">
-    <title>Особистий веб-сайт — Михайло Ковалівський</title>
+
+    <title>Михайло Ковалівський — Портфоліо</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header class="site-header" id="home">
-    <div class="container">
-        <h1>Особистий веб-сайт<br>Михайло Ковалівський</h1>
-        <p class="subtitle">Студент 2 курсу, ТЦР-22, Державного університету інформаційно-комунікаційних технологій</p>
+<header class="header" id="home">
+    <div class="container header-container">
+
+        <a href="#home" class="logo">MK.</a>
+
+        <nav class="desktop-nav" aria-label="Головна навігація">
+            <a href="#home">Головна</a>
+            <a href="#about">Про мене</a>
+            <a href="#posts">Роботи</a>
+            <a href="#works">Портфоліо</a>
+        </nav>
+
     </div>
 </header>
 
-<nav class="main-nav" aria-label="Головне меню">
-    <ul class="container">
-        <li><a href="index.html">Головна</a></li>
-        <li><a href="#about">Про мене</a></li>
-        <li><a href="#practice">Практичні роботи</a></li>
-        <li><a href="#labs">Лабораторні заняття</a></li>
-    </ul>
-</nav>
 
-<main class="container">
+<div class="mobile-menu">
 
-    <section id="about" class="section">
-        <h2>Про мене</h2>
-        <div class="about">
-            <figure class="about-photo">
-                <img src="images/photo.jpg" alt="Фото: Михайло Ковалівський" width="250" height="250">
-                <figcaption>Михайло Ковалівський</figcaption>
-            </figure>
+    <button class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Відкрити меню"
+            aria-expanded="false"
+            aria-controls="mobileDrawer">
 
-            <div class="about-text">
-                <p>
-                    Мене звати Михайло Ковалівський. Навчаюсь на другому курсі в універі DUIKT за спеціальністю ТЦР.
-                </p>
-                <p>
-                    Поза навчанням люблю читати, подорожувати та передивлятися TikTok.
-                </p>
+        <span></span>
+        <span></span>
+        <span></span>
 
-                <h3>Контактні дані</h3>
-                <address>
-                    <dl class="contacts">
-                        <dt>Email</dt>
-                        <dd><a href="mailto:st3859062@stud.duikt.edu.ua">st3859062@stud.duikt.edu.ua</a></dd>
-                        <dt>Місто</dt>
-                        <dd>Київ обл., Україна</dd>
-                    </dl>
-                </address>
-            </div>
+    </button>
+
+    <nav class="mobile-drawer"
+         id="mobileDrawer"
+         aria-label="Мобільна навігація">
+
+        <a href="#home">Головна</a>
+        <a href="#about">Про мене</a>
+        <a href="#posts">Роботи</a>
+        <a href="#works">Портфоліо</a>
+        <a href="#contacts">Контакти</a>
+
+    </nav>
+
+</div>
+
+
+<main>
+
+    <section class="container hero" id="about">
+
+        <div class="hero-content">
+
+            <h1>
+                Привіт, я Михайло Ковалівський
+            </h1>
+
+            <p>
+                Студент 2 курсу, групи ТЦР-22,
+                Державного університету інформаційно-комунікаційних
+                технологій.
+            </p>
+
+            <p>
+                Навчаюсь, розвиваю свої навички у сфері інформаційних
+                технологій та створюю власні проєкти.
+                Поза навчанням люблю читати, подорожувати
+                та передивлятися TikTok.
+            </p>
+
+            <a href="#posts" class="primary-button">
+                Переглянути мої роботи
+            </a>
+
         </div>
+
+
+        <div class="hero-image">
+
+            <div class="image-circle"></div>
+
+            <img src="images/photo.jpg"
+                 alt="Фото Михайла Ковалівського"
+                 width="250"
+                 height="250">
+
+        </div>
+
     </section>
 
-    <section id="practice" class="section">
-        <h2>Практичні роботи</h2>
-        <ul class="work-list">
-            <li>
-                <article>
-                    <h3><a href="Pr1.html">Практична робота № 1.</a></h3>
-                    <p>Практичне заняття No1. Розклад занять та основи</p>
+
+    <section class="recent-section" id="posts">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <h2>Список моїх робіт</h2>
+
+                <a href="#works">Переглянути всі роботи</a>
+
+            </div>
+
+
+            <div class="recent-grid">
+
+                <article class="recent-card">
+
+                    <h3>
+                        <a href="#pr1">
+                            Практична робота № 1
+                        </a>
+                    </h3>
+
+                    <div class="recent-meta">
+                        <span>2026</span>
+                        <span>HTML</span>
+                    </div>
+
+                    <p>
+                        Практичне заняття № 1.
+                        Розклад занять та основи HTML.
+                    </p>
+
                 </article>
-            </li>
-            <li>
-                <article>
-                    <h3><a href="Lr1.html">Практична робота № 2.</a></h3>
-                    <p>Практичне заняття No2. Основи CSS</p>
+
+                <article class="recent-card">
+
+                    <h3>
+                        <a href="#pr2">
+                            Практична робота № 2
+                        </a>
+                    </h3>
+
+                    <div class="recent-meta">
+                        <span>2026</span>
+                        <span>CSS</span>
+                    </div>
+
+                    <p>
+                        Практичне заняття № 2.
+                        Основи каскадних таблиць стилів CSS.
+                    </p>
+
                 </article>
-            </li>
-            <li>
-                <article>
-                    <h3><a href="Lr3.html">Практична робота № 3</a></h3>
-                    <p>Копія Головної сторінки YouTube</p>
+
+                <article class="recent-card">
+
+                    <h3>
+                        <a href="#pr3">
+                            Практична робота № 3
+                        </a>
+                    </h3>
+
+                    <div class="recent-meta">
+                        <span>2026</span>
+                        <span>Web Design</span>
+                    </div>
+
+                    <p>
+                        Створення копії головної сторінки YouTube.
+                    </p>
+
                 </article>
-            </li>
-            <li>
-                <article>
-                    <h3><a href="Pr4.html">Практична робота № 4</a></h3>
-                    <p>Клавіатура</p>
+
+                <article class="recent-card">
+
+                    <h3>
+                        <a href="#pr4">
+                            Практична робота № 4
+                        </a>
+                    </h3>
+
+                    <div class="recent-meta">
+                        <span>2026</span>
+                        <span>HTML / CSS</span>
+                    </div>
+
+                    <p>
+                        Створення вебсторінки з інтерактивною клавіатурою.
+                    </p>
+
                 </article>
-            </li>
-        </ul>
+
+                <article class="recent-card">
+
+                    <h3>
+                        <a href="#lr1">
+                            Лабораторна робота № 1
+                        </a>
+                    </h3>
+
+                    <div class="recent-meta">
+                        <span>2026</span>
+                        <span>HTML</span>
+                    </div>
+
+                    <p>
+                        Лабораторне заняття № 1.
+                        Основи HTML.
+                    </p>
+
+                </article>
+
+                <article class="recent-card">
+
+                    <h3>
+                        <a href="#lr2">
+                            Лабораторна робота № 2
+                        </a>
+                    </h3>
+
+                    <div class="recent-meta">
+                        <span>2026</span>
+                        <span>CSS</span>
+                    </div>
+
+                    <p>
+                        Практичне тренування та робота з CSS.
+                    </p>
+
+                </article>
+
+
+                <article class="recent-card">
+
+                    <h3>
+                        <a href="#lr3">
+                            Лабораторна робота № 3
+                        </a>
+                    </h3>
+
+                    <div class="recent-meta">
+                        <span>2026</span>
+                        <span>Web Design</span>
+                    </div>
+
+                    <p>
+                        Копія головної сторінки YouTube.
+                    </p>
+
+                </article>
+
+
+                <article class="recent-card">
+
+                    <h3>
+                        <a href="#lr4">
+                            Лабораторна робота № 4
+                        </a>
+                    </h3>
+
+                    <div class="recent-meta">
+                        <span>2026</span>
+                        <span>HTML / CSS</span>
+                    </div>
+
+                    <p>
+                        Створення інтерактивного планера на тиждень.
+                    </p>
+
+                </article>
+
+                <article class="recent-card">
+
+                    <h3>
+                        <a href="#lr6">
+                            Лабораторна робота № 6
+                        </a>
+                    </h3>
+
+                    <div class="recent-meta">
+                        <span>2026</span>
+                        <span>HTML / CSS </span>
+                    </div>
+
+                    <p>
+                        CSS Анімація
+                    </p>
+
+                </article>
+
+                <article class="recent-card">
+
+                    <h3>
+                        <a href="#lr7">
+                            Лабораторна робота № 7
+                        </a>
+                    </h3>
+
+                    <div class="recent-meta">
+                        <span>2026</span>
+                        <span>HTML / CSS / SCSS / ВЕМ</span>
+                    </div>
+
+                    <p>
+                        Новорічна Листівка
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
     </section>
 
-    <section id="labs" class="section">
-        <h2>Лабораторні заняття</h2>
-        <ul class="work-list">
-            <li>
-                <article>
-                    <h3><a href="Lr1.html">Лабораторна робота № 1</a></h3>
-                    <p>Лабораторне заняття No1. Основи HTML</p>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <h3><a href="Lr2.html">Лабораторна робота № 2</a></h3>
-                    <p>Тренування CSS</p>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <h3><a href="Lr3.html">Лабораторна робота № 3</a></h3>
-                    <p>Копія Головної сторінки YouTube</p>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <h3><a href="Lr4.html">Лабораторна робота № 4</a></h3>
-                    <p>Планер на Тиждень</p>
-                </article>
-            </li>
-        </ul>
+
+    <section class="container works-section" id="works">
+
+        <h2 class="works-heading">
+            Виконані роботи
+        </h2>
+
+
+        <div class="work-list">
+
+            <article class="work-item" id="pr1">
+
+                <a href="Pr1.html" class="work-image">
+                    <img src="images/pr1.png"
+                         alt="Скріншот практичної роботи № 1"
+                         loading="lazy">
+                </a>
+
+                <div class="work-content">
+
+                    <h3>
+                        <a href="Pr1.html">
+                            Практична робота № 1
+                        </a>
+                    </h3>
+
+                    <div class="work-meta">
+                        <span class="work-year">2026</span>
+                        <span>HTML</span>
+                    </div>
+
+                    <p>
+                        Створення вебсторінки з розкладом занять.
+                        Ознайомлення з основами HTML та структурою документа.
+                    </p>
+
+                    <a href="Pr1.html" class="work-link">
+                        Переглянути роботу →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="work-item" id="pr2">
+
+                <a href="Lr1.html" class="work-image">
+                    <img src="images/Pr2.png"
+                         alt="Скріншот практичної роботи № 2"
+                         loading="lazy">
+                </a>
+
+                <div class="work-content">
+
+                    <h3>
+                        <a href="Lr1.html">
+                            Практична робота № 2
+                        </a>
+                    </h3>
+
+                    <div class="work-meta">
+                        <span class="work-year">2026</span>
+                        <span>CSS</span>
+                    </div>
+
+                    <p>
+                        Ознайомлення з основами CSS,
+                        оформлення HTML-елементів та налаштування стилів.
+                    </p>
+
+                    <a href="Lr1.html" class="work-link">
+                        Переглянути роботу →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="work-item" id="pr3">
+
+                <a href="Lr3.html" class="work-image">
+                    <img src="images/Pr3.png"
+                         alt="Скріншот копії головної сторінки YouTube"
+                         loading="lazy">
+                </a>
+
+                <div class="work-content">
+
+                    <h3>
+                        <a href="Lr3.html">
+                            Практична робота № 3
+                        </a>
+                    </h3>
+
+                    <div class="work-meta">
+                        <span class="work-year">2026</span>
+                        <span>Web Design</span>
+                    </div>
+
+                    <p>
+                        Розробка копії головної сторінки YouTube
+                        з використанням HTML та CSS.
+                    </p>
+
+                    <a href="Lr3.html" class="work-link">
+                        Переглянути роботу →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="work-item" id="pr4">
+
+                <a href="Pr4.html" class="work-image">
+                    <img src="images/Pr4.png"
+                         alt="Скріншот практичної роботи № 4"
+                         loading="lazy">
+                </a>
+
+                <div class="work-content">
+
+                    <h3>
+                        <a href="Pr4.html">
+                            Практична робота № 4
+                        </a>
+                    </h3>
+
+                    <div class="work-meta">
+                        <span class="work-year">2026</span>
+                        <span>HTML / CSS</span>
+                    </div>
+
+                    <p>
+                        Створення вебсторінки з клавіатурою
+                        та оформленням її клавіш за допомогою CSS.
+                    </p>
+
+                    <a href="Pr4.html" class="work-link">
+                        Переглянути роботу →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="work-item" id="lr1">
+
+                <a href="Lr1.html" class="work-image">
+                    <img src="images/Pr2.png"
+                         alt="Скріншот лабораторної роботи № 1"
+                         loading="lazy">
+                </a>
+
+                <div class="work-content">
+
+                    <h3>
+                        <a href="Lr1.html">
+                            Лабораторна робота № 1
+                        </a>
+                    </h3>
+
+                    <div class="work-meta">
+                        <span class="work-year">2026</span>
+                        <span>HTML</span>
+                    </div>
+
+                    <p>
+                        Практичне ознайомлення з основами HTML,
+                        структурою сторінки та основними тегами.
+                    </p>
+
+                    <a href="Lr1.html" class="work-link">
+                        Переглянути роботу →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="work-item" id="lr2">
+
+                <a href="Lr2.html" class="work-image">
+                    <img src="images/Lr2.png"
+                         alt="Скріншот лабораторної роботи № 2"
+                         loading="lazy">
+                </a>
+
+                <div class="work-content">
+
+                    <h3>
+                        <a href="Lr2.html">
+                            Лабораторна робота № 2
+                        </a>
+                    </h3>
+
+                    <div class="work-meta">
+                        <span class="work-year">2026</span>
+                        <span>CSS</span>
+                    </div>
+
+                    <p>
+                        Тренування навичок роботи з CSS,
+                        стилізація елементів та оформлення вебсторінок.
+                    </p>
+
+                    <a href="Lr2.html" class="work-link">
+                        Переглянути роботу →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="work-item" id="lr3">
+
+                <a href="Lr3.html" class="work-image">
+                    <img src="images/Pr3.png"
+                         alt="Скріншот лабораторної роботи № 3"
+                         loading="lazy">
+                </a>
+
+                <div class="work-content">
+
+                    <h3>
+                        <a href="Lr3.html">
+                            Лабораторна робота № 3
+                        </a>
+                    </h3>
+
+                    <div class="work-meta">
+                        <span class="work-year">2026</span>
+                        <span>Web Design</span>
+                    </div>
+
+                    <p>
+                        Створення копії головної сторінки YouTube
+                        з відтворенням її основного інтерфейсу.
+                    </p>
+
+                    <a href="Lr3.html" class="work-link">
+                        Переглянути роботу →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="work-item" id="lr4">
+
+                <a href="Lr4.html" class="work-image">
+                    <img src="images/Lr4.png"
+                         alt="Скріншот лабораторної роботи № 4"
+                         loading="lazy">
+                </a>
+
+                <div class="work-content">
+
+                    <h3>
+                        <a href="Lr4.html">
+                            Лабораторна робота № 4
+                        </a>
+                    </h3>
+
+                    <div class="work-meta">
+                        <span class="work-year">2026</span>
+                        <span>HTML / CSS</span>
+                    </div>
+
+                    <p>
+                        Створення планера на тиждень
+                        для організації завдань та планування часу.
+                    </p>
+
+                    <a href="Lr4.html" class="work-link">
+                        Переглянути роботу →
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article class="work-item" id="lr6">
+
+                <a href="Lr6/Lr6.html" class="work-image">
+                    <img src="images/Lr6.png"
+                         alt="Скріншот лабораторної роботи № 6"
+                         loading="lazy">
+                </a>
+
+                <div class="work-content">
+
+                    <h3>
+                        <a href="Lr6/Lr6.html">
+                            Лабораторна робота № 6
+                        </a>
+                    </h3>
+
+                    <div class="work-meta">
+                        <span class="work-year">2026</span>
+                        <span>HTML / CSS </span>
+                    </div>
+
+                    <p>
+                        Створення Анімації
+                        за допомогою CSS властивостей.
+                    </p>
+
+                    <a href="Lr6/Lr6.html" class="work-link">
+                        Переглянути роботу →
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article class="work-item" id="lr7">
+
+                <a href="lab7-new-year-card/index.html" class="work-image">
+                    <img src="images/Lr7.png"
+                         alt="Скріншот лабораторної роботи № 7"
+                         loading="lazy">
+                </a>
+
+                <div class="work-content">
+
+                    <h3>
+                        <a href="lab7-new-year-card/index.html">
+                            Лабораторна робота № 7
+                        </a>
+                    </h3>
+
+                    <div class="work-meta">
+                        <span class="work-year">2026</span>
+                        <span>HTML / CSS / SCSS / ВЕМ</span>
+                    </div>
+
+                    <p>
+                        Створення Новорічної листівки
+                        за допомогою ВЕМ.
+                    </p>
+
+                    <a href="lab7-new-year-card/index.html" class="work-link">
+                        Переглянути роботу →
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
     </section>
 
 </main>
 
-<footer class="site-footer">
-    <div class="container footer-grid">
-        <div>
-            <h2>Контакти</h2>
-            <p><a href="mailto:st3859062@stud.duikt.edu.ua">st3859062@stud.duikt.edu.ua</a></p>
-        </div>
-        <div>
-            <h2>Посилання</h2>
-            <ul>
-                <li><a href="https://github.com/heavenaurex" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                <li><a href="https://www.linkedin.com/in/михайло-ковалівський-188932445/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                <li><a href="https://t.me/BHYTPEBEHH0" target="_blank" rel="noopener noreferrer">Telegram</a></li>
-            </ul>
-        </div>
-        <div>
-            <h2>Навчання</h2>
-            <p>Роки навчання: 2024–2028</p>
-            <p>Державний університет інформаційно-комунікаційних технологій</p>
-        </div>
+
+
+<footer class="footer" id="contacts">
+
+    <div class="social-links">
+
+        <a href="https://github.com/heavenaurex"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="GitHub">
+
+            <svg viewBox="0 0 24 24"
+                 fill="currentColor"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15.99 1.7 2.6 1.21 3.23.92.1-.72.39-1.21.7-1.49-2.48-.28-5.08-1.24-5.08-5.5 0-1.21.43-2.2 1.15-2.97-.12-.28-.5-1.41.11-2.94 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.11-1.44 3.04-1.14 3.04-1.14.61 1.53.23 2.66.11 2.94.72.77 1.15 1.76 1.15 2.97 0 4.27-2.6 5.21-5.09 5.49.4.35.75 1.02.75 2.06v3.09c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/>
+
+            </svg>
+
+        </a>
+
+
+        <a href="https://t.me/BHYTPEBEHH0"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Telegram">
+
+            <svg viewBox="0 0 24 24"
+                 fill="currentColor"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <path d="M21.94 4.66 18.8 19.47c-.24 1.05-.86 1.31-1.74.82l-4.8-3.54-2.32 2.24c-.26.26-.48.48-.98.48l.35-4.9 8.93-8.07c.39-.35-.08-.55-.6-.2L6.6 13.34l-4.7-1.47c-1.02-.32-1.04-1.02.21-1.5L20.5 3.6c.86-.32 1.62.21 1.44 1.06Z"/>
+
+            </svg>
+
+        </a>
+
     </div>
-    <p class="copyright">&copy; 2026 Михайло Ковалівський</p>
+
+
+    <p class="footer-email">
+        <a href="mailto:st3859062@stud.duikt.edu.ua">
+            st3859062@stud.duikt.edu.ua
+        </a>
+    </p>
+
+
+    <p class="copyright">
+        © 2026 Михайло Ковалівський
+    </p>
+
+
+    <p class="copyright">
+        <a href="https://www.figma.com/design/gKZoWoleFgP35xvYu83Y2l/Portfolio-UI---Web---Mobile?node-id=6-52&t=ir8Rpzop0TGoLCsi-4"
+           target="_blank"
+           rel="noopener noreferrer">
+            Дизайн Desktop
+        </a>
+        &nbsp; | &nbsp;
+        <a href="https://www.figma.com/design/gKZoWoleFgP35xvYu83Y2l/Portfolio-UI---Web---Mobile?node-id=136-57&t=ir8Rpzop0TGoLCsi-4"
+           target="_blank"
+           rel="noopener noreferrer">
+            Дизайн Mobile
+        </a>
+    </p>
+
 </footer>
+
+
+
+<script>
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileDrawer = document.getElementById("mobileDrawer");
+
+    menuToggle.addEventListener("click", function () {
+
+        const isActive = menuToggle.classList.toggle("active");
+
+        mobileDrawer.classList.toggle("active", isActive);
+
+        menuToggle.setAttribute("aria-expanded", isActive);
+
+        menuToggle.setAttribute(
+            "aria-label",
+            isActive ? "Закрити меню" : "Відкрити меню"
+        );
+
+    });
+
+
+    mobileDrawer.querySelectorAll("a").forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            menuToggle.classList.remove("active");
+            mobileDrawer.classList.remove("active");
+
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Відкрити меню");
+
+        });
+
+    });
+
+
+    document.addEventListener("click", function (event) {
+
+        if (
+            !menuToggle.contains(event.target) &&
+            !mobileDrawer.contains(event.target)
+        ) {
+
+            menuToggle.classList.remove("active");
+            mobileDrawer.classList.remove("active");
+
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Відкрити меню");
+
+        }
+
+    });
+</script>
 
 </body>
 </html>

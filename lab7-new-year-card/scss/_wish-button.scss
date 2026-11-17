@@ -1,0 +1,50 @@
+@use "variables" as *;
+
+.wish-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 21px;
+  border: 1px solid rgba(246, 213, 138, .72);
+  border-radius: 999px;
+  color: $color-gold;
+  background: rgba(255, 255, 255, .04);
+  cursor: pointer;
+  transition: color $transition-main, background $transition-main, transform $transition-main, box-shadow $transition-main;
+
+  &:hover {
+    color: $color-night;
+    background: $color-gold;
+    box-shadow: 0 0 25px rgba(246, 213, 138, .2);
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 3px solid $color-white;
+    outline-offset: 4px;
+  }
+
+  &__label {
+    font-size: .82rem;
+    letter-spacing: .04em;
+  }
+
+  &__icon {
+    font-size: 1.15rem;
+  }
+}
+
+.wish {
+  max-width: 430px;
+  margin: 22px auto 0;
+  color: $color-ice;
+  font-family: $font-display;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  animation: wish-appear 450ms ease both;
+}
+
+@keyframes wish-appear {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}

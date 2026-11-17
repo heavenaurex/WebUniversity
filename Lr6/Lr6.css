@@ -1,0 +1,735 @@
+
+/* ==============================
+   GENERAL SETTINGS
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #101526;
+    color: white;
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page {
+    width: min(1000px, 95%);
+    text-align: center;
+    padding: 30px 0;
+}
+
+.header {
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    font-size: clamp(24px, 4vw, 36px);
+    color: #eaf7ff;
+    text-shadow: 0 0 15px #42cfff;
+}
+
+.header p {
+    margin-top: 10px;
+    color: #9eacc8;
+}
+
+
+/* ==============================
+   ANIMATED SCENE
+================================ */
+
+.stage {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    overflow: hidden;
+
+    border: 2px solid #426b9b;
+    border-radius: 18px;
+
+    background: linear-gradient(
+            to bottom,
+            #101b42,
+            #243b69,
+            #526d91
+    );
+
+    box-shadow:
+            0 0 25px rgba(50, 160, 255, 0.25);
+
+    isolation: isolate;
+}
+
+
+/* ==============================
+   ANIMATED SKY
+================================ */
+
+.sky {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+            180deg,
+            #101b42,
+            #344d82,
+            #9cbed4
+    );
+
+    animation: sky-change 6.4s infinite;
+}
+
+@keyframes sky-change {
+    0%, 45% {
+        filter: brightness(1);
+    }
+
+    55%, 66% {
+        filter: brightness(1.4) saturate(1.5);
+    }
+
+    70%, 76% {
+        filter: brightness(3);
+    }
+
+    80%, 100% {
+        filter: brightness(0.65);
+    }
+}
+
+
+/* ==============================
+   STARS
+================================ */
+
+.stars {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+            radial-gradient(white 1px, transparent 2px),
+            radial-gradient(#b8eaff 1px, transparent 2px);
+
+    background-size: 70px 70px, 110px 110px;
+    background-position: 0 0, 35px 25px;
+
+    opacity: 0.5;
+
+    animation: stars-move 15s linear infinite;
+}
+
+@keyframes stars-move {
+    from {
+        background-position: 0 0, 35px 25px;
+    }
+
+    to {
+        background-position: 70px 140px, 145px 105px;
+    }
+}
+
+
+/* ==============================
+   MOVING CLOUDS
+================================ */
+
+.cloud {
+    position: absolute;
+
+    width: 150px;
+    height: 42px;
+
+    background: rgba(210, 230, 255, 0.22);
+
+    border-radius: 50px;
+    filter: blur(5px);
+}
+
+.cloud::before,
+.cloud::after {
+    content: "";
+    position: absolute;
+
+    background: inherit;
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 65px;
+    height: 65px;
+    left: 25px;
+    top: -30px;
+}
+
+.cloud::after {
+    width: 80px;
+    height: 55px;
+    right: 20px;
+    top: -20px;
+}
+
+.cloud-one {
+    top: 90px;
+    left: -180px;
+
+    animation: cloud-move 18s linear infinite;
+}
+
+.cloud-two {
+    top: 170px;
+    left: -200px;
+
+    transform: scale(1.4);
+
+    animation: cloud-move 25s linear infinite;
+    animation-delay: -8s;
+}
+
+.cloud-three {
+    top: 55px;
+    left: -200px;
+
+    transform: scale(0.8);
+
+    animation: cloud-move 22s linear infinite;
+    animation-delay: -14s;
+}
+
+@keyframes cloud-move {
+    from {
+        left: -200px;
+    }
+
+    to {
+        left: 110%;
+    }
+}
+
+
+/* ==============================
+   ELECTRICITY
+================================ */
+
+.electricity {
+    position: absolute;
+    width: 120px;
+    height: 4px;
+
+    background: #b8f5ff;
+
+    box-shadow:
+            0 0 10px #00cfff,
+            0 0 25px #00aaff;
+
+    opacity: 0;
+
+    animation: electric-flash 6.4s infinite;
+}
+
+.electricity-one {
+    top: 35%;
+    left: 20%;
+
+    transform: rotate(35deg);
+}
+
+.electricity-two {
+    top: 48%;
+    right: 15%;
+
+    transform: rotate(-35deg);
+    animation-delay: 0.15s;
+}
+
+@keyframes electric-flash {
+    0%, 48%, 82%, 100% {
+        opacity: 0;
+    }
+
+    55%, 59%, 63%, 67% {
+        opacity: 1;
+    }
+
+    57%, 61%, 65% {
+        opacity: 0.2;
+    }
+}
+
+
+/* ==============================
+   POKEMON CONTAINER
+================================ */
+
+.pokemon-container {
+    position: absolute;
+
+    width: 192px;
+    height: 192px;
+
+    left: 50%;
+    top: 43%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 5;
+
+    animation: pokemon-movement 6.4s infinite;
+}
+
+@keyframes pokemon-movement {
+    0%, 45% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) translateY(-10px);
+    }
+
+    55%, 68% {
+        transform: translate(-50%, -50%) translateY(-15px)
+        scale(1.08);
+    }
+
+    70%, 75% {
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+
+    80%, 100% {
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
+
+
+/* Pokemon shadow */
+
+.pokemon-shadow {
+    position: absolute;
+
+    width: 120px;
+    height: 20px;
+
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 50%;
+
+    filter: blur(7px);
+
+    animation: shadow-change 6.4s infinite;
+}
+
+@keyframes shadow-change {
+    0%, 45% {
+        opacity: 0.8;
+        transform: translateX(-50%) scale(1);
+    }
+
+    55%, 68% {
+        opacity: 0.4;
+        transform: translateX(-50%) scale(0.7);
+    }
+
+    75%, 100% {
+        opacity: 0;
+    }
+}
+
+
+/* ==============================
+   SPRITE SHEET ANIMATION
+================================ */
+
+.pokemon-sprite {
+    position: absolute;
+    inset: 0;
+
+    width: 192px;
+    height: 192px;
+
+    background-image: url("electrode_sheet.png");
+    background-repeat: no-repeat;
+
+    /* 8 frames in one horizontal row */
+    background-size: 800% 100%;
+    background-position: 0% 50%;
+
+    image-rendering: pixelated;
+
+    animation: sprite-sequence 6.4s steps(1, end) infinite;
+}
+
+@keyframes sprite-sequence {
+    0%, 48% {
+        background-position: 0% 50%;
+    }
+
+    53% {
+        background-position: 14.2857% 50%;
+    }
+
+    57% {
+        background-position: 28.5714% 50%;
+    }
+
+    61% {
+        background-position: 42.8571% 50%;
+    }
+
+    65% {
+        background-position: 57.1429% 50%;
+    }
+
+    70% {
+        background-position: 71.4286% 50%;
+    }
+
+    80% {
+        background-position: 85.7143% 50%;
+    }
+
+    90% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* ==============================
+   EXPLOSION SHOCKWAVE
+================================ */
+
+.shockwave {
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    left: 50%;
+    top: 43%;
+
+    transform: translate(-50%, -50%) scale(0);
+
+    border: 5px solid white;
+    border-radius: 50%;
+
+    box-shadow:
+            0 0 20px #00cfff,
+            inset 0 0 20px #00cfff;
+
+    opacity: 0;
+
+    z-index: 7;
+
+    animation: shockwave-animation 6.4s infinite;
+}
+
+@keyframes shockwave-animation {
+    0%, 68% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+
+    70% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 1;
+    }
+
+    82% {
+        transform: translate(-50%, -50%) scale(5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(5);
+        opacity: 0;
+    }
+}
+
+
+/* ==============================
+   EXPLOSION FLASH
+================================ */
+
+.explosion-flash {
+    position: absolute;
+    inset: 0;
+
+    background: white;
+
+    opacity: 0;
+    z-index: 8;
+
+    pointer-events: none;
+
+    animation: flash-animation 6.4s infinite;
+}
+
+@keyframes flash-animation {
+    0%, 69% {
+        opacity: 0;
+    }
+
+    70% {
+        opacity: 0.95;
+    }
+
+    73% {
+        opacity: 0.65;
+    }
+
+    76% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* ==============================
+   CSS EXPLOSION PARTICLES
+================================ */
+
+.explosion-particles {
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+
+    left: 50%;
+    top: 43%;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow:
+            50px -70px 0 #9eeaff,
+            -65px -45px 0 #ffffff,
+            85px 35px 0 #65dfff,
+            -90px 50px 0 #ffffff,
+            20px 90px 0 #a5edff,
+            -30px -100px 0 #ffffff;
+
+    opacity: 0;
+
+    z-index: 9;
+
+    animation: particles-animation 6.4s infinite;
+}
+
+@keyframes particles-animation {
+    0%, 70% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    72% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    82% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(2.5);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* ==============================
+   GROUND
+================================ */
+
+.ground {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 100px;
+
+    background: linear-gradient(
+            to bottom,
+            #293e5d,
+            #111c32
+    );
+
+    border-top: 3px solid rgba(160, 220, 255, 0.5);
+
+    z-index: 3;
+}
+
+.ground::before {
+    display: none;
+}
+
+
+/* ==============================
+   SCENE CAPTIONS
+================================ */
+
+.scene-caption {
+    position: absolute;
+
+    width: 100%;
+    bottom: 125px;
+
+    z-index: 10;
+
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.scene-caption span {
+    position: absolute;
+    width: 100%;
+    left: 0;
+
+    opacity: 0;
+}
+
+.caption-normal {
+    color: #a9edff;
+    animation: caption-normal 6.4s infinite;
+}
+
+.caption-warning {
+    color: #ffe45c;
+    animation: caption-warning 6.4s infinite;
+}
+
+.caption-explosion {
+    color: #ff7777;
+    animation: caption-explosion 6.4s infinite;
+}
+
+@keyframes caption-normal {
+    0%, 45% {
+        opacity: 1;
+    }
+
+    50%, 100% {
+        opacity: 0;
+    }
+}
+
+@keyframes caption-warning {
+    0%, 49% {
+        opacity: 0;
+    }
+
+    53%, 68% {
+        opacity: 1;
+    }
+
+    70%, 100% {
+        opacity: 0;
+    }
+}
+
+@keyframes caption-explosion {
+    0%, 69% {
+        opacity: 0;
+    }
+
+    72%, 78% {
+        opacity: 1;
+    }
+
+    82%, 100% {
+        opacity: 0;
+    }
+}
+
+
+/* ==============================
+   FOOTER
+================================ */
+
+.footer {
+    margin-top: 20px;
+    color: #a5b4d0;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.footer a {
+    color: #72d9ff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==============================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 600px) {
+    .stage {
+        height: 420px;
+    }
+
+    .pokemon-container {
+        top: 42%;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+
+    .scene-caption {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+}
+
+
+/* ==============================
+   ACCESSIBILITY
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .cloud,
+    .stars,
+    .electricity,
+    .pokemon-container,
+    .pokemon-sprite,
+    .pokemon-shadow,
+    .shockwave,
+    .explosion-flash,
+    .explosion-particles,
+    .sky,
+    .scene-caption span {
+        animation: none;
+    }
+
+    .pokemon-sprite {
+        background-position: 0% 50%;
+    }
+
+    .pokemon-container {
+        transform: translate(-50%, -50%);
+    }
+
+}

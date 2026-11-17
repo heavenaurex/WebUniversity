@@ -1,0 +1,568 @@
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+button {
+    font: inherit;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* PAGE */
+
+.page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 32px 18px;
+    color: #ffffff;
+    background:
+            radial-gradient(ellipse at 50% 0%, rgba(57, 91, 143, 0.5), transparent 48%),
+            linear-gradient(145deg, #050d20, #08152f 55%, #101f3c);
+}
+
+/* POSTCARD */
+
+.postcard {
+    position: relative;
+    isolation: isolate;
+    width: min(100%, 760px);
+    min-height: 850px;
+    overflow: hidden;
+    padding: 54px clamp(22px, 6vw, 64px) 34px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 28px;
+    background:
+            radial-gradient(ellipse at 50% 72%, rgba(36, 74, 112, 0.72), transparent 45%),
+            linear-gradient(180deg, #10264a 0%, #0b1b38 58%, #10294a 100%);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+}
+
+.postcard::before,
+.postcard::after {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    border: 1px solid rgba(246, 213, 138, 0.25);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.postcard::before {
+    width: 460px;
+    height: 460px;
+    top: -310px;
+    left: calc(50% - 230px);
+}
+
+.postcard::after {
+    width: 540px;
+    height: 540px;
+    top: -350px;
+    left: calc(50% - 270px);
+}
+
+.postcard__stars {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.7;
+    background-image:
+            radial-gradient(2px 2px at 12% 18%, #ffffff 98%, transparent),
+            radial-gradient(1px 1px at 82% 13%, #ffffff 98%, transparent),
+            radial-gradient(2px 2px at 91% 39%, #f6d58a 98%, transparent),
+            radial-gradient(1px 1px at 23% 43%, #ffffff 98%, transparent),
+            radial-gradient(2px 2px at 72% 51%, #ffffff 98%, transparent),
+            radial-gradient(1px 1px at 7% 62%, #f6d58a 98%, transparent);
+}
+
+.postcard__header,
+.postcard__footer {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.postcard__eyebrow {
+    margin: 0 0 15px;
+    color: #f6d58a;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+}
+
+.postcard__title {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(3.6rem, 10vw, 6.3rem);
+    font-weight: 400;
+    line-height: 0.88;
+    letter-spacing: -0.055em;
+    text-shadow: 0 5px 24px rgba(0, 0, 0, 0.25);
+}
+
+.postcard__title-accent {
+    color: #f6d58a;
+    font-style: italic;
+}
+
+.postcard__subtitle {
+    max-width: 390px;
+    margin: 22px auto 0;
+    color: rgba(223, 243, 255, 0.82);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    letter-spacing: 0.04em;
+}
+
+.postcard__footer-text {
+    margin: 0 0 19px;
+    color: rgba(223, 243, 255, 0.78);
+    font-size: 0.76rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.postcard__signature {
+    margin: 23px 0 0;
+    color: rgba(246, 213, 138, 0.82);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+/* SNOW */
+
+.snow {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.snow__flake {
+    position: absolute;
+    top: -12px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 9px rgba(223, 243, 255, 0.8);
+    animation: snowfall 9s linear infinite;
+}
+
+.snow__flake--one {
+    left: 8%;
+    animation-delay: -1s;
+    animation-duration: 8s;
+}
+
+.snow__flake--two {
+    left: 19%;
+    animation-delay: -5s;
+    animation-duration: 11s;
+    transform: scale(0.7);
+}
+
+.snow__flake--three {
+    left: 31%;
+    animation-delay: -3s;
+    animation-duration: 7s;
+}
+
+.snow__flake--four {
+    left: 43%;
+    animation-delay: -7s;
+    animation-duration: 12s;
+    transform: scale(0.6);
+}
+
+.snow__flake--five {
+    left: 55%;
+    animation-delay: -2s;
+    animation-duration: 9s;
+}
+
+.snow__flake--six {
+    left: 66%;
+    animation-delay: -6s;
+    animation-duration: 10s;
+    transform: scale(0.8);
+}
+
+.snow__flake--seven {
+    left: 76%;
+    animation-delay: -4s;
+    animation-duration: 8s;
+}
+
+.snow__flake--eight {
+    left: 88%;
+    animation-delay: -8s;
+    animation-duration: 12s;
+    transform: scale(0.6);
+}
+
+.snow__flake--nine {
+    left: 95%;
+    animation-delay: -2s;
+    animation-duration: 10s;
+}
+
+.snow__flake--ten {
+    left: 25%;
+    animation-delay: -9s;
+    animation-duration: 13s;
+    transform: scale(0.5);
+}
+
+.snow__flake--eleven {
+    left: 70%;
+    animation-delay: -1s;
+    animation-duration: 7s;
+    transform: scale(0.5);
+}
+
+.snow__flake--twelve {
+    left: 49%;
+    animation-delay: -4s;
+    animation-duration: 10s;
+    transform: scale(0.7);
+}
+
+@keyframes snowfall {
+    from {
+        translate: 0 -20px;
+    }
+
+    to {
+        translate: 35px 900px;
+    }
+}
+
+/* WINTER SCENE */
+
+.winter-scene {
+    position: relative;
+    height: 355px;
+    margin: 4px -30px 0;
+}
+
+.moon {
+    position: absolute;
+    top: 18px;
+    right: 17%;
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: #fff3cf;
+    box-shadow:
+            0 0 28px rgba(255, 231, 174, 0.3),
+            0 0 75px rgba(255, 231, 174, 0.15);
+}
+
+.hill {
+    position: absolute;
+    right: -10%;
+    bottom: 0;
+    left: -10%;
+    height: 130px;
+    border-radius: 50% 50% 0 0 / 35% 35% 0 0;
+}
+
+.hill--back {
+    bottom: 30px;
+    background: linear-gradient(180deg, #d8eafa, #9bbbd7);
+    transform: rotate(-5deg);
+}
+
+.hill--front {
+    height: 100px;
+    background: linear-gradient(180deg, #f5fbff, #c6dff1);
+    transform: rotate(4deg);
+}
+
+/* CHRISTMAS TREE */
+
+.tree {
+    position: absolute;
+    bottom: 60px;
+    width: 180px;
+    height: 270px;
+}
+
+.tree--main {
+    left: calc(50% - 90px);
+    z-index: 1;
+}
+
+.tree--small {
+    left: 12%;
+    bottom: 42px;
+    width: 110px;
+    height: 175px;
+    opacity: 0.85;
+    transform: scale(0.78);
+    transform-origin: bottom center;
+}
+
+.tree__top,
+.tree__middle,
+.tree__bottom {
+    position: absolute;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-right: 75px solid transparent;
+    border-bottom: 115px solid #176b59;
+    border-left: 75px solid transparent;
+    filter: drop-shadow(0 7px 0 rgba(5, 48, 47, 0.18));
+    transform: translateX(-50%);
+}
+
+.tree__top {
+    top: 0;
+    border-right-width: 48px;
+    border-bottom-width: 88px;
+    border-left-width: 48px;
+    border-bottom-color: #25836a;
+}
+
+.tree__middle {
+    top: 55px;
+    border-right-width: 68px;
+    border-bottom-width: 105px;
+    border-left-width: 68px;
+}
+
+.tree__bottom {
+    top: 112px;
+    border-right-width: 88px;
+    border-bottom-width: 120px;
+    border-left-width: 88px;
+    border-bottom-color: #0d493f;
+}
+
+.tree__trunk {
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 12px);
+    width: 24px;
+    height: 38px;
+    background: #76513d;
+}
+
+.tree__star {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    color: #f6d58a;
+    font-size: 35px;
+    text-shadow: 0 0 15px rgba(246, 213, 138, 0.8);
+    transform: translateX(-50%);
+}
+
+.tree__ornament {
+    position: absolute;
+    z-index: 2;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #f6d58a;
+    box-shadow: 0 0 12px rgba(246, 213, 138, 0.7);
+}
+
+.tree__ornament--one {
+    top: 102px;
+    left: 47px;
+}
+
+.tree__ornament--two {
+    top: 164px;
+    right: 35px;
+    width: 15px;
+    height: 15px;
+    background: #d96c69;
+}
+
+.tree__ornament--three {
+    top: 213px;
+    left: 75px;
+    width: 10px;
+    height: 10px;
+}
+
+/* GIFTS */
+
+.gift {
+    position: absolute;
+    z-index: 2;
+    bottom: 39px;
+    width: 52px;
+    height: 42px;
+    border-radius: 3px;
+    background: #b94e57;
+    box-shadow: 0 5px 12px rgba(18, 37, 57, 0.2);
+}
+
+.gift::before {
+    position: absolute;
+    top: -7px;
+    left: -4px;
+    width: 60px;
+    height: 10px;
+    border-radius: 2px;
+    background: #d56b70;
+    content: "";
+}
+
+.gift span {
+    position: absolute;
+    top: 0;
+    left: 22px;
+    width: 8px;
+    height: 42px;
+    background: #f6d58a;
+}
+
+.gift--one {
+    left: 54%;
+}
+
+.gift--two {
+    left: 66%;
+    bottom: 31px;
+    width: 42px;
+    height: 34px;
+    background: #315f83;
+    transform: rotate(7deg);
+}
+
+.gift--two::before {
+    width: 50px;
+}
+
+.gift--two span {
+    left: 17px;
+    height: 34px;
+}
+
+/* WISH BUTTON */
+
+.wish-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 21px;
+    border: 1px solid rgba(246, 213, 138, 0.72);
+    border-radius: 999px;
+    color: #f6d58a;
+    background: rgba(255, 255, 255, 0.04);
+    cursor: pointer;
+    transition:
+            color 220ms ease,
+            background 220ms ease,
+            transform 220ms ease,
+            box-shadow 220ms ease;
+}
+
+.wish-button:hover {
+    color: #08152f;
+    background: #f6d58a;
+    box-shadow: 0 0 25px rgba(246, 213, 138, 0.2);
+    transform: translateY(-2px);
+}
+
+.wish-button:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 4px;
+}
+
+.wish-button__label {
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+}
+
+.wish-button__icon {
+    font-size: 1.15rem;
+}
+
+/* WISH TEXT */
+
+.wish {
+    max-width: 430px;
+    margin: 22px auto 0;
+    color: #dff3ff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    animation: wish-appear 450ms ease both;
+}
+
+@keyframes wish-appear {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 520px) {
+    .postcard {
+        min-height: 790px;
+        padding-top: 42px;
+        border-radius: 20px;
+    }
+
+    .postcard__eyebrow {
+        font-size: 0.62rem;
+    }
+
+    .postcard__subtitle {
+        font-size: 0.85rem;
+    }
+
+    .postcard__footer-text {
+        font-size: 0.64rem;
+        letter-spacing: 0.13em;
+    }
+
+    .winter-scene {
+        height: 320px;
+        margin-right: -20px;
+        margin-left: -20px;
+    }
+
+    .tree--small {
+        left: 2%;
+    }
+
+    .gift--one {
+        left: 59%;
+    }
+
+    .gift--two {
+        left: 73%;
+    }
+}
